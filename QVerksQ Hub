@@ -1,0 +1,28 @@
+game:GetService("StarterGui"):SetCore("SendNotification", {
+Title = "Welcome To My AutoFarm Script ";
+Text  = "Script Made By QVerksQ";})
+ 
+
+local farming = false
+
+
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.lower(msg):sub(1) =="farm" then
+    farming = true
+     while wait() do 
+         for i = 100,020 do 
+            if game.Players.LocalPlayer.Character:FindFirstChild("sword") then
+                game.Players.LocalPlayer.Character.sword.Handle.pr.RemoteEvent:FireServer()
+            else
+                game.Players.LocalPlayer.Backpack.sword.Handle.pr.RemoteEvent:FireServer()
+            end
+        end
+    end
+    end
+end)
+ 
+game.Players.LocalPlayer.Chatted:connect(function(msg)
+if string.lower(msg):sub(1) =="unfarm" then
+    farming = false
+    end
+end)
